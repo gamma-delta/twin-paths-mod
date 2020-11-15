@@ -109,10 +109,10 @@ dependencies {
     compileOnly fg.deobf("mekanism:Mekanism:1.16.4-10.0.17.444:api")
     runtimeOnly fg.deobf("mekanism:Mekanism:1.16.4-10.0.17.444")
     // Prevent BOP block tags from not working
-    implementation fg.deobf('curse.maven:biomesoplenty:3107508')
+    implementation fg.deobf('curse.maven:biomesoplenty:220318')
 
-    runtimeOnly fg.deobf('curse.maven:modnametooltip:3038982')
-    runtimeOnly fg.deobf('curse.maven:ding:3062074')
+    runtimeOnly fg.deobf('curse.maven:modnametooltip:238747')
+    runtimeOnly fg.deobf('curse.maven:ding:231275')
 
 }
 

@@ -61,6 +61,5 @@ This would be completly unnessecary if kubejs supported custom Mekanism chemical
 [[dependencies.twin_paths_mod]]
     modId = "biomesoplenty"
     mandatory = true
-    versionRange = "[13,)"
     ordering = "AFTER"
     side = "BOTH"
