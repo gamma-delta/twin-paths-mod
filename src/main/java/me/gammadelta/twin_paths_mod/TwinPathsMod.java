@@ -1,5 +1,6 @@
 package me.gammadelta.twin_paths_mod;
 
+import me.gammadelta.twin_paths_mod.items.ItemsRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -36,6 +37,9 @@ public class TwinPathsMod
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+
+        // Register my custom items
+        ItemsRegistry.register();
     }
 
     private void setup(final FMLCommonSetupEvent event)

@@ -44,7 +44,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                twin_paths_mod {
                     source sourceSets.main
                 }
             }
@@ -60,7 +60,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                twin_paths_mod {
                     source sourceSets.main
                 }
             }
@@ -79,7 +79,7 @@ minecraft {
             args '--mod', 'twin_paths_mod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                examplemod {
+                twin_paths_mod {
                     source sourceSets.main
                 }
             }
@@ -91,9 +91,11 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    flatDir {
-        dir '../.minecraft/mods'
-    }
+    maven { url 'https://dvs1.progwml6.com/files/maven/' }
+    maven { url 'https://files.minecraftforge.net/maven' }
+    maven { url 'https://modmaven.dev/' }
+    maven { url "https://www.cursemaven.com" }
+
 }
 
 dependencies {
@@ -102,9 +104,16 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.16.4-35.0.15'
 
-    compileOnly "mavenbad:Mekanism:1.16.4:10.0.17.444"
+    compileOnly fg.deobf("mezz.jei:jei-1.16.4:7.6.0.58")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.16.4:7.6.0.58")
+    compileOnly fg.deobf("mekanism:Mekanism:1.16.4-10.0.17.444:api")
+    runtimeOnly fg.deobf("mekanism:Mekanism:1.16.4-10.0.17.444")
+    // Prevent BOP block tags from not working
+    implementation fg.deobf('curse.maven:biomesoplenty:3107508')
 
-    runtimeOnly "mavenbad:jei-1.16.4:7.6.0.57"
+    runtimeOnly fg.deobf('curse.maven:modnametooltip:3038982')
+    runtimeOnly fg.deobf('curse.maven:ding:3062074')
+
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
